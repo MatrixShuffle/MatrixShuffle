@@ -9,31 +9,45 @@
 UserInterface *UI; // Initialization of object
 
 UserInterface::UserInterface()  : wxFrame(nullptr, wxID_ANY, "MatrixViewer", wxDefaultPosition, wxSize(800, 600)){
-	canvas = new wxGLCanvas(this, wxID_ANY);
+	Canvas = new wxGLCanvas(this, wxID_ANY);
 
-	// Making context
-    glContext = new wxGLContext(canvas);
+	// Creating UI Elemets
+    glContext = new wxGLContext(Canvas);
+    Toolbar = CreateToolBar();
+    Toolbar->SetWindowStyle(wxTB_TEXT);
 
-    canvas->Bind(wxEVT_PAINT, &UserInterface::OnRender, this);
+    Toolbar->AddTool(BJoinServerID, "Join", wxNullBitmap);
+    Toolbar->AddTool(BRefreshID, "Refresh", wxNullBitmap);
+    Toolbar->AddTool(BAboutID, "About", wxNullBitmap);
+    Toolbar->AddTool(wxID_EXIT, "Exit", wxNullBitmap);
 
-    timer = new wxTimer(this);
+    Toolbar->Realize();
+
+    wxBoxSizer* GLSizer = new wxBoxSizer(wxVERTICAL);
+    GLSizer->Add(Canvas, 1, wxEXPAND);
+    SetSizer(GLSizer);
+
+    // Binding canvas
+    Canvas->Bind(wxEVT_PAINT, &UserInterface::OnRender, this);
+
+    Timer = new wxTimer(this);
 	Bind(wxEVT_TIMER, &UserInterface::OnTimer, this);
-	timer->Start(16); // ~60 FPS
+	Timer->Start(16); // ~60 FPS
     Show(true);
 }
 
 void UserInterface::OnTimer(wxTimerEvent& event) {
-    canvas->Refresh();
+    Canvas->Refresh();
 }
 
 void UserInterface::OnRender(wxPaintEvent& event){
-	wxPaintDC dc(canvas);
-	canvas->SetCurrent(*glContext);
+	wxPaintDC dc(Canvas);
+	Canvas->SetCurrent(*glContext); // Setting current context
 
 	// OpenGL
     glClearColor(1.0f, 1.0f, 1.0f, 1.0f);
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
     // Swap buffers
-    canvas->SwapBuffers();
+    Canvas->SwapBuffers();
 }

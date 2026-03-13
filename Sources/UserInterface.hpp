@@ -7,10 +7,16 @@
 #include <wx/wx.h>
 #include <wx/glcanvas.h>
 
-enum InterfaceStates{
+enum InterfaceStates{ // Ui interface state now
 	ServerList=0,
 	NameSelect,
 	Player
+};
+
+enum InterfaceControls{ // Interface controls ID's
+	BJoinServerID=1000,
+	BRefreshID,
+	BAboutID
 };
 
 // Window with interface
@@ -21,9 +27,11 @@ private:
 	void OnRender(wxPaintEvent& event); // Rendering window
 	void OnTimer(wxTimerEvent& event); // Calling render function
 	InterfaceStates State; // State of interface now
-    wxGLCanvas *canvas;
+    wxGLCanvas *Canvas;
     wxGLContext *glContext;
-    wxTimer *timer;
+    wxTimer *Timer;
+    // UI Elements
+    wxToolBar *Toolbar;
 };
 
 extern UserInterface *UI; // Global pointer
