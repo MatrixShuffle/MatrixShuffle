@@ -46,6 +46,14 @@ jobs:
 
     steps:
     - uses: actions/checkout@v4
+    
+    - name: Install wxWidgets (Linux)
+      if: runner.os == 'Linux'
+      run: sudo apt-get update && sudo apt-get install -y libwxgtk3.2-dev
+    
+    - name: Install wxWidgets (Windows)
+      if: runner.os == 'Windows'
+      run: choco install wxwidgets
 
     - name: Set reusable strings
       # Turn repeated input strings (such as the build output directory) into step outputs. These step outputs can be used throughout the workflow file.
