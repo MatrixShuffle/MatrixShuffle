@@ -53,7 +53,10 @@ jobs:
     
     - name: Install wxWidgets (Windows)
       if: runner.os == 'Windows'
-      run: choco install wxwidgets
+      run: |
+        git clone https://github.com/microsoft/vcpkg.git
+        ./vcpkg/bootstrap-vcpkg.bat
+        ./vcpkg/vcpkg install wxwidgets:x64-windows
 
     - name: Set reusable strings
       # Turn repeated input strings (such as the build output directory) into step outputs. These step outputs can be used throughout the workflow file.
