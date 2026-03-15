@@ -5,7 +5,6 @@
 #pragma once
 
 #include <wx/wx.h>
-#include <wx/glcanvas.h>
 #include <wx/listctrl.h>
 
 enum InterfaceStates{ // Ui interface state now
@@ -19,7 +18,7 @@ enum InterfaceControls{ // Interface controls ID's
 	BRefreshID,
 	BAboutID,
 	BSettingsID,
-	ServerListID
+	ServerListID=2000
 };
 
 // Window with interface
@@ -27,12 +26,7 @@ class UserInterface : wxFrame{
 public:
 	UserInterface(); // Initialization of OpenGL and widgets
 private:
-	void OnRender(wxPaintEvent& event); // Rendering window
-	void OnTimer(wxTimerEvent& event); // Calling render function
 	InterfaceStates State; // State of interface now
-    wxGLCanvas *Canvas;
-    wxGLContext *glContext;
-    wxTimer *Timer;
     // UI Elements
     wxToolBar *Toolbar;
     wxListCtrl *ServerList;

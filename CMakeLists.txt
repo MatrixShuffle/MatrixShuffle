@@ -20,6 +20,3 @@ add_executable(${PROJECT_NAME} ${SOURCES})
 find_package(wxWidgets REQUIRED COMPONENTS core base gl)
 include(${wxWidgets_USE_FILE})
 target_link_libraries(${PROJECT_NAME} ${wxWidgets_LIBRARIES})
-# GL
-find_package(OpenGL REQUIRED)
-target_link_libraries(${PROJECT_NAME} ${wxWidgets_LIBRARIES} OpenGL::GL)
