@@ -1,4 +1,5 @@
 # MatrixShuffle
+![Screenshots collage](Screenshots/Collage.png)
 ## What is MatrixShuffle?
 MatrixShuffle - Is social network writed on C++ language licensed under MIT License where you can watch with other peoples random youtube videos.
 ## Features
