@@ -16,10 +16,16 @@ UserInterface::UserInterface()  : wxFrame(nullptr, wxID_ANY, "MatrixViewer", wxD
     Toolbar = CreateToolBar();
     Toolbar->SetWindowStyle(wxTB_TEXT);
 
-    Toolbar->AddTool(BJoinServerID, "Join", wxNullBitmap);
-    Toolbar->AddTool(BRefreshID, "Refresh", wxNullBitmap);
-    Toolbar->AddTool(BAboutID, "About", wxNullBitmap);
-    Toolbar->AddTool(wxID_EXIT, "Exit", wxNullBitmap);
+    // Loading icons
+    wxBitmap JoinIcon(wxT("Assets/JoinIcon.png"), wxBITMAP_TYPE_PNG);
+    wxBitmap RefreshIcon(wxT("Assets/RefreshIcon.png"), wxBITMAP_TYPE_PNG);
+    wxBitmap AboutIcon(wxT("Assets/AboutIcon.png"), wxBITMAP_TYPE_PNG);
+    wxBitmap SettingsIcon(wxT("Assets/SettingsIcon.png"), wxBITMAP_TYPE_PNG);
+
+    Toolbar->AddTool(BJoinServerID, "Join", JoinIcon);
+    Toolbar->AddTool(BRefreshID, "Refresh", RefreshIcon);
+    Toolbar->AddTool(BAboutID, "About", AboutIcon);
+    Toolbar->AddTool(BSettingsID, "Settings", SettingsIcon);
 
     Toolbar->Realize();
 
