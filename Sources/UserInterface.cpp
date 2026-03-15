@@ -28,11 +28,17 @@ UserInterface::UserInterface()  : wxFrame(nullptr, wxID_ANY, "MatrixViewer", wxD
     wxBitmap RefreshIcon(wxT("Assets/RefreshIcon.png"), wxBITMAP_TYPE_PNG);
     wxBitmap AboutIcon(wxT("Assets/AboutIcon.png"), wxBITMAP_TYPE_PNG);
     wxBitmap SettingsIcon(wxT("Assets/SettingsIcon.png"), wxBITMAP_TYPE_PNG);
+    wxBitmap LogoWhite(wxT("Assets/LogoWhite.png"), wxBITMAP_TYPE_PNG);
+    wxStaticBitmap* BitmapWhiteLogo = new wxStaticBitmap(Toolbar, wxID_ANY, LogoWhite);
 
+    // Adding toolbar buttons
     Toolbar->AddTool(BJoinServerID, "Join", JoinIcon);
     Toolbar->AddTool(BRefreshID, "Refresh", RefreshIcon);
     Toolbar->AddTool(BAboutID, "About", AboutIcon);
     Toolbar->AddTool(BSettingsID, "Settings", SettingsIcon);
+	Toolbar->AddStretchableSpace(); // Adding space between buttons and icons
+
+    Toolbar->AddControl(BitmapWhiteLogo);
 
     Toolbar->Realize();
 
