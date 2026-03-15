@@ -6,6 +6,7 @@
 
 #include <wx/wx.h>
 #include <wx/glcanvas.h>
+#include <wx/listctrl.h>
 
 enum InterfaceStates{ // Ui interface state now
 	ServerList=0,
@@ -17,7 +18,8 @@ enum InterfaceControls{ // Interface controls ID's
 	BJoinServerID=1000,
 	BRefreshID,
 	BAboutID,
-	BSettingsID
+	BSettingsID,
+	ServerListID
 };
 
 // Window with interface
@@ -33,6 +35,7 @@ private:
     wxTimer *Timer;
     // UI Elements
     wxToolBar *Toolbar;
+    wxListCtrl *ServerList;
 };
 
 extern UserInterface *UI; // Global pointer

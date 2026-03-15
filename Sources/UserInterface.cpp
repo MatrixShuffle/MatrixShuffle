@@ -14,7 +14,17 @@ UserInterface::UserInterface()  : wxFrame(nullptr, wxID_ANY, "MatrixViewer", wxD
 	// Creating UI Elemets
     glContext = new wxGLContext(Canvas);
     Toolbar = CreateToolBar();
+    ServerList = new wxListCtrl(this, ServerListID, wxDefaultPosition, wxDefaultSize, wxLC_REPORT);
+
+    // Configuration of elements
     Toolbar->SetWindowStyle(wxTB_TEXT);
+    ServerList->InsertColumn(0, "Users");
+    ServerList->InsertColumn(1, "Name");
+    ServerList->InsertColumn(2, "Ping");
+
+    long ItemIndex = ServerList->InsertItem(0, "11");
+    ServerList->SetItem(ItemIndex, 1, "Debugging");
+	ServerList->SetItem(ItemIndex, 2, "11");
 
     // Loading icons
     wxBitmap JoinIcon(wxT("Assets/JoinIcon.png"), wxBITMAP_TYPE_PNG);
@@ -30,6 +40,7 @@ UserInterface::UserInterface()  : wxFrame(nullptr, wxID_ANY, "MatrixViewer", wxD
     Toolbar->Realize();
 
     wxBoxSizer* GLSizer = new wxBoxSizer(wxVERTICAL);
+    GLSizer->Add(ServerList, 1, wxEXPAND);
     GLSizer->Add(Canvas, 1, wxEXPAND);
     SetSizer(GLSizer);
 
