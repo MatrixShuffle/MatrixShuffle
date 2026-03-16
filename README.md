@@ -6,8 +6,6 @@ MatrixShuffle - Is social network writed on C++ language licensed under MIT Lice
 This program now indev, and here is no features.
 ## Documentation
 Documentation for MatrixShuffle you can find in DOCUMENTATION.md file.
-## Authors & Contributors
-Mykyta Polishyk - Main developer of this program. Graphics | Code
 ## Building
 To build MatrixShuffle you have to install
 * C++ Compiler (Clang, G++, etc)
