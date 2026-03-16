@@ -5,7 +5,7 @@
 #include "UserInterface.hpp"
 #include "ServerList.hpp"
 
-class MatrixViewer : public wxApp {
+class MatrixShuffle : public wxApp {
 public:
     virtual bool OnInit() override {
         SL = new ServerList(); // Creating and updating server list
@@ -16,4 +16,4 @@ public:
 };
 
 // Generate startpoint
-wxIMPLEMENT_APP(MatrixViewer);
+wxIMPLEMENT_APP(MatrixShuffle);
