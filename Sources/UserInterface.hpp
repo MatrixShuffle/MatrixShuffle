@@ -31,6 +31,7 @@ private:
 	InterfaceStates State; // State of interface now
     // UI Elements
     wxToolBar *m_Toolbar;
+    wxStatusBar *m_Statusbar;
     wxListCtrl *m_ServerList;
 };
 

@@ -12,18 +12,25 @@ UserInterface::UserInterface()  : wxFrame(nullptr, wxID_ANY, "MatrixViewer", wxD
 	// Creating UI Elemets
     m_Toolbar = CreateToolBar();
     m_ServerList = new wxListCtrl(this, ServerListID, wxDefaultPosition, wxDefaultSize, wxLC_REPORT);
+    m_Statusbar = CreateStatusBar();
 
     // Configuration of elements
     m_Toolbar->SetWindowStyle(wxTB_TEXT);
-    m_ServerList->InsertColumn(0, "Users");
+    m_ServerList->InsertColumn(0, "Online");
     m_ServerList->InsertColumn(1, "Name");
     m_ServerList->InsertColumn(2, "Ping");
+
+    int TotalOnline=0;
 
     for (int i = 0; i < SL->ServersSize(); i++){
     	int Row = m_ServerList->InsertItem(i, std::to_string(SL->GetServerByID(i).Online));
     	m_ServerList->SetItem(Row, 1, SL->GetServerByID(i).Name);
 		m_ServerList->SetItem(Row, 2, std::to_string(SL->GetServerByID(i).Ping));
+		TotalOnline+=SL->GetServerByID(i).Online;
     }
+
+    // Setting status bar text
+    m_Statusbar->SetStatusText("Loaded " + std::to_string(SL->ServersSize()) + " servers with " + std::to_string(TotalOnline) + " online");
 
     // Loading icons
     wxBitmap JoinIcon(wxT("Assets/JoinIcon.png"), wxBITMAP_TYPE_PNG);
