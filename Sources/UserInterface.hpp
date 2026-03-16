@@ -6,11 +6,12 @@
 
 #include <wx/wx.h>
 #include <wx/listctrl.h>
+#include <string>
 
 enum InterfaceStates{ // Ui interface state now
-	ServerList=0,
-	NameSelect,
-	Player
+	SServerList=0,
+	SNameSelect,
+	SPlayer
 };
 
 enum InterfaceControls{ // Interface controls ID's
@@ -25,11 +26,12 @@ enum InterfaceControls{ // Interface controls ID's
 class UserInterface : wxFrame{
 public:
 	UserInterface(); // Initialization of OpenGL and widgets
+	void LoadServers(); // Load servers from master server
 private:
 	InterfaceStates State; // State of interface now
     // UI Elements
-    wxToolBar *Toolbar;
-    wxListCtrl *ServerList;
+    wxToolBar *m_Toolbar;
+    wxListCtrl *m_ServerList;
 };
 
 extern UserInterface *UI; // Global pointer

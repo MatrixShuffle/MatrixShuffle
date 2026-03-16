@@ -1,12 +1,16 @@
 // Copyright (C) 2026 Mykyta Polishyk
 // This project is licensed under the MIT License.
 // See the LICENSE file for details.
+
 #include "UserInterface.hpp"
+#include "ServerList.hpp"
 
 class MatrixViewer : public wxApp {
 public:
     virtual bool OnInit() override {
-        UI = new UserInterface(); // Creating window
+        SL = new ServerList(); // Creating and updating server list
+        SL->Update();
+        UI = new UserInterface(); // Creating User Interface
         return true;              
     }
 };
