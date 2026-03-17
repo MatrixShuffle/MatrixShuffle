@@ -19,6 +19,7 @@ enum InterfaceControls{ // Interface controls ID's
 	BRefreshID,
 	BAboutID,
 	BSettingsID,
+	BCreateServerID,
 	ServerListID=2000
 };
 

@@ -16,7 +16,7 @@ public:
 private:
 	std::vector<MSServerData> Servers; // Servers
 	boost::asio::io_context AsioContext; // Boost.asio context
-    boost::asio::ip::tcp::socket Socket; // Boost.asio Socket
+    //boost::asio::ip::tcp::socket Socket; // Boost.asio Socket
 };
 
 extern MasterServer *MS; // Global pointer

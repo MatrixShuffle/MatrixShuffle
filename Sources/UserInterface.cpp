@@ -37,6 +37,7 @@ UserInterface::UserInterface()  : wxFrame(nullptr, wxID_ANY, "MatrixShuffle", wx
     wxBitmap RefreshIcon(wxT("Assets/RefreshIcon.png"), wxBITMAP_TYPE_PNG);
     wxBitmap AboutIcon(wxT("Assets/AboutIcon.png"), wxBITMAP_TYPE_PNG);
     wxBitmap SettingsIcon(wxT("Assets/SettingsIcon.png"), wxBITMAP_TYPE_PNG);
+    wxBitmap CreateServerIcon(wxT("Assets/CreateServerIcon.png"), wxBITMAP_TYPE_PNG);
     wxBitmap LogoWhite(wxT("Assets/LogoWhite.png"), wxBITMAP_TYPE_PNG);
     wxStaticBitmap* BitmapWhiteLogo = new wxStaticBitmap(m_Toolbar, wxID_ANY, LogoWhite);
 
@@ -45,6 +46,7 @@ UserInterface::UserInterface()  : wxFrame(nullptr, wxID_ANY, "MatrixShuffle", wx
     m_Toolbar->AddTool(BRefreshID, "Refresh", RefreshIcon);
     m_Toolbar->AddTool(BAboutID, "About", AboutIcon);
     m_Toolbar->AddTool(BSettingsID, "Settings", SettingsIcon);
+    m_Toolbar->AddTool(BCreateServerID, "Create server", CreateServerIcon);
 	m_Toolbar->AddStretchableSpace(); // Adding space between buttons and icons
 
     m_Toolbar->AddControl(BitmapWhiteLogo);
