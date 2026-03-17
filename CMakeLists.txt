@@ -12,11 +12,22 @@ set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -O2")
 # Targets
 file(GLOB SOURCES "Sources/*.cpp")
 
-# Creating exec
-add_executable(${PROJECT_NAME} ${SOURCES})
 
 # Adding libraries
 # wxWidgets
 find_package(wxWidgets REQUIRED COMPONENTS core base gl)
-include(${wxWidgets_USE_FILE})
-target_link_libraries(${PROJECT_NAME} ${wxWidgets_LIBRARIES})
+if(wxWidgets_FOUND)
+    include(${wxWidgets_USE_FILE})
+endif()
+
+# Boost
+find_package(Boost REQUIRED COMPONENTS system)
+if(Boost_FOUND)
+    include_directories(${Boost_INCLUDE_DIRS})
+endif()
+
+# Executable
+add_executable(${PROJECT_NAME} ${SOURCES})
+
+# Linking
+target_link_libraries(${PROJECT_NAME} PRIVATE ${wxWidgets_LIBRARIES} Boost::system)

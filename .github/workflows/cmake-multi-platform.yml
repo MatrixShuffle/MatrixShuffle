@@ -45,7 +45,10 @@ jobs:
     - name: Install wxWidgets (Linux)
       if: runner.os == 'Linux'
       run: sudo apt-get update && sudo apt-get install -y libwxgtk3.2-dev
-    
+    - name: Install Boost.Asio (Linux)
+      if: runner.os == 'Linux'
+      run: sudo apt-get install -y libboos-all-dev
+
     - name: Install wxWidgets (Windows)
       if: runner.os == 'Windows'
       run: |
