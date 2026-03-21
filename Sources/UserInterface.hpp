@@ -6,6 +6,7 @@
 
 #include <wx/wx.h>
 #include <wx/listctrl.h>
+#include <wx/file.h>
 #include <string>
 
 enum InterfaceStates{ // Ui interface state now
@@ -34,6 +35,12 @@ private:
     wxToolBar *m_Toolbar;
     wxStatusBar *m_Statusbar;
     wxListCtrl *m_ServerList;
+    // Icons
+    wxBitmapBundle JoinIcon;
+    wxBitmapBundle RefreshIcon;
+    wxBitmapBundle AboutIcon;
+    wxBitmapBundle SettingsIcon;
+    wxBitmapBundle CreateServerIcon;
 };
 
 extern UserInterface *UI; // Global pointer

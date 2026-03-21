@@ -32,12 +32,14 @@ UserInterface::UserInterface()  : wxFrame(nullptr, wxID_ANY, "MatrixShuffle", wx
     // Setting status bar text
     m_Statusbar->SetStatusText("Loaded " + std::to_string(SL->ServersSize()) + " servers with " + std::to_string(TotalOnline) + " online");
 
+    int IconSize = 32;
+
     // Loading icons
-    wxBitmap JoinIcon(wxT("Assets/JoinIcon.png"), wxBITMAP_TYPE_PNG);
-    wxBitmap RefreshIcon(wxT("Assets/RefreshIcon.png"), wxBITMAP_TYPE_PNG);
-    wxBitmap AboutIcon(wxT("Assets/AboutIcon.png"), wxBITMAP_TYPE_PNG);
-    wxBitmap SettingsIcon(wxT("Assets/SettingsIcon.png"), wxBITMAP_TYPE_PNG);
-    wxBitmap CreateServerIcon(wxT("Assets/CreateServerIcon.png"), wxBITMAP_TYPE_PNG);
+    wxBitmap JoinIcon(wxBitmap("Assets/Icons/Go-jump.png", wxBITMAP_TYPE_PNG).ConvertToImage().Scale(IconSize, IconSize, wxIMAGE_QUALITY_HIGH));
+    wxBitmap RefreshIcon(wxBitmap("Assets/Icons/View-refresh.png", wxBITMAP_TYPE_PNG).ConvertToImage().Scale(IconSize, IconSize, wxIMAGE_QUALITY_HIGH));
+    wxBitmap AboutIcon(wxBitmap("Assets/Icons/Help-browser.png", wxBITMAP_TYPE_PNG).ConvertToImage().Scale(IconSize, IconSize, wxIMAGE_QUALITY_HIGH));
+    wxBitmap SettingsIcon(wxBitmap("Assets/Icons/Emblem-system.png", wxBITMAP_TYPE_PNG).ConvertToImage().Scale(IconSize, IconSize, wxIMAGE_QUALITY_HIGH));
+    wxBitmap CreateServerIcon(wxBitmap("Assets/Icons/Network-idle.png", wxBITMAP_TYPE_PNG).ConvertToImage().Scale(IconSize, IconSize, wxIMAGE_QUALITY_HIGH));
     wxBitmap LogoWhite(wxT("Assets/LogoWhite.png"), wxBITMAP_TYPE_PNG);
     wxStaticBitmap* BitmapWhiteLogo = new wxStaticBitmap(m_Toolbar, wxID_ANY, LogoWhite);
 

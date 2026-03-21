@@ -1,0 +1,1 @@
+Warning, in this directory icons from Tango project. This images dont made by MatrixShuffle devel team.
