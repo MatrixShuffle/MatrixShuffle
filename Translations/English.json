@@ -1,0 +1,10 @@
+{
+	"join" : "Join",
+	"refresh" : "Refresh",
+	"about" : "About",
+	"settings" : "Settings",
+	"create_server" : "Create server",
+	"online" : "Online",
+	"name" : "Name",
+	"ping" : "Ping"
+}
