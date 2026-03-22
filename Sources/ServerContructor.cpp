@@ -7,6 +7,6 @@
 
 ServerConstructor *SC;
 
-ServerConstructor::ServerConstructor()  : wxFrame(nullptr, wxID_ANY, "Server constructor", wxDefaultPosition, wxSize(200, 400)){
+ServerConstructor::ServerConstructor()  : wxDialog(wxWindow::FindWindowById(MainWindowID), ServerConstructorID, "Server constructor", wxDefaultPosition, wxSize(200, 400)){
 	Show(true);
 }

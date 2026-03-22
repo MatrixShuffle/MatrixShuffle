@@ -8,7 +8,7 @@
 
 UserInterface *UI = nullptr; // Initialization of object
 
-UserInterface::UserInterface()  : wxFrame(nullptr, wxID_ANY, "MatrixShuffle", wxDefaultPosition, wxSize(800, 600)){
+UserInterface::UserInterface()  : wxFrame(nullptr, MainWindowID, "MatrixShuffle", wxDefaultPosition, wxSize(800, 600)){
 	// Creating UI Elemets
     m_Toolbar = CreateToolBar();
     m_ServerList = new wxListCtrl(this, ServerListID, wxDefaultPosition, wxDefaultSize, wxLC_REPORT);

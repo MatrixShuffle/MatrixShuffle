@@ -8,7 +8,7 @@
 #include <wx/textctrl.h>
 #include <wx/checkbox.h>
 
-class ServerConstructor : public wxFrame{
+class ServerConstructor : public wxDialog{
 public:
 	ServerConstructor();
 private:

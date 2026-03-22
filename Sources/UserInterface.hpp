@@ -16,6 +16,8 @@ enum InterfaceStates{ // Ui interface state now
 };
 
 enum InterfaceControls{ // Interface controls ID's
+	MainWindowID=100,
+	ServerConstructorID,
 	BJoinServerID=1000,
 	BRefreshID,
 	BAboutID,
