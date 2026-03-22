@@ -7,7 +7,6 @@
 #include "UserInterface.hpp"
 #include "ServerList.hpp"
 #include "MasterServer.hpp"
-#include "ServerContructor.hpp"
 
 class MatrixShuffle : public wxApp {
 public:
@@ -27,7 +26,6 @@ public:
 			SL = new ServerList(); // Creating and updating server list
         	SL->Update();
         	UI = new UserInterface(); // Creating User Interface
-            SC = new ServerConstructor();
 		}
         return true;              
     }

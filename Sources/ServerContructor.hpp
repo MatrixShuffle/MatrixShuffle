@@ -18,5 +18,3 @@ private:
 	wxCheckBox *m_ChatFilterCheckBox;
 	wxTextCtrl *m_PasswordTextBox;
 };
-
-extern ServerConstructor *SC; // Global pointer

@@ -5,8 +5,6 @@
 #include "ServerContructor.hpp"
 #include "UserInterface.hpp"
 
-ServerConstructor *SC;
-
 ServerConstructor::ServerConstructor()  : wxDialog(wxWindow::FindWindowById(MainWindowID), ServerConstructorID, "Server constructor", wxDefaultPosition, wxSize(200, 400)){
 	Show(true);
 }

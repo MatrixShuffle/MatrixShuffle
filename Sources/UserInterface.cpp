@@ -3,6 +3,7 @@
 // See the LICENSE file for details.
 
 #include "UserInterface.hpp"
+#include "ServerContructor.hpp"
 #include "ServerList.hpp"
 #include <string>
 
@@ -55,5 +56,17 @@ UserInterface::UserInterface()  : wxFrame(nullptr, MainWindowID, "MatrixShuffle"
 
     m_Toolbar->Realize();
 
+    // Binding buttons
+    Bind(wxEVT_MENU, &UserInterface::OnToolClicked, this, BCreateServerID);
+
     Show(true);
+}
+
+void UserInterface::OnToolClicked(wxCommandEvent& Event){
+    switch (Event.GetId()){
+        case BCreateServerID:
+            ServerConstructor *SC; // Creating pointer
+            SC = new ServerConstructor(); // Creating form 
+            break;
+    }
 }

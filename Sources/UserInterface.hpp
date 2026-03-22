@@ -29,7 +29,8 @@ enum InterfaceControls{ // Interface controls ID's
 // Window with interface
 class UserInterface : wxFrame{
 public:
-	UserInterface(); // Initialization of OpenGL and widgets
+	UserInterface(); // Initialization of widgets and UI
+	virtual void OnToolClicked(wxCommandEvent& Event); // Event handler
 	void LoadServers(); // Load servers from master server
 private:
 	InterfaceStates State; // State of interface now
@@ -37,12 +38,6 @@ private:
     wxToolBar *m_Toolbar;
     wxStatusBar *m_Statusbar;
     wxListCtrl *m_ServerList;
-    // Icons
-    wxBitmapBundle JoinIcon;
-    wxBitmapBundle RefreshIcon;
-    wxBitmapBundle AboutIcon;
-    wxBitmapBundle SettingsIcon;
-    wxBitmapBundle CreateServerIcon;
 };
 
 extern UserInterface *UI; // Global pointer
