@@ -18,6 +18,7 @@ struct ClientSettings{
 // Server configuration
 struct ServerSettings{
 	std::string Title;
+	int Port;
 	bool UseCustomVideos;
 	bool ChatFilter;
 	bool IsPrivate;

@@ -16,14 +16,16 @@ enum InterfaceStates{ // Ui interface state now
 };
 
 enum InterfaceControls{ // Interface controls ID's
-	MainWindowID=100,
+	MainWindowID=100, // Windows
 	ServerConstructorID,
-	BJoinServerID=1000,
+	ServerControlWindowID,
+	BJoinServerID=1000, // Main screen buttons
 	BRefreshID,
 	BAboutID,
 	BSettingsID,
 	BCreateServerID,
-	ServerListID=2000
+	ServerListID,
+	BCloseServerID=2000 // Server control button
 };
 
 // Window with interface
