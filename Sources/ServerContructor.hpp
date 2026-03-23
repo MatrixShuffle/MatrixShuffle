@@ -7,14 +7,24 @@
 #include <wx/wx.h>
 #include <wx/textctrl.h>
 #include <wx/checkbox.h>
+#include <wx/button.h>
+#include <wx/sizer.h>
 
 class ServerConstructor : public wxDialog{
 public:
 	ServerConstructor();
 private:
+	// UI Widgets
 	wxTextCtrl *m_TitleTextBox;
+	wxTextCtrl *m_LogFileNameTextBox;
+	wxTextCtrl *m_PortTextBox;
 	wxCheckBox *m_UseCustomVideosCheckBox;
-	wxCheckBox *m_IsPrivateCheckBox;
 	wxCheckBox *m_ChatFilterCheckBox;
+	wxCheckBox *m_IsPrivateCheckBox;
 	wxTextCtrl *m_PasswordTextBox;
+	wxTextCtrl *m_CustomVideosDirectoryTextBox;
+	wxTextCtrl *m_GoogleAPIKeyTextBox;
+	wxButton *m_CreateButton;
+	wxButton *m_HelpButton;
+	wxButton *m_ConfigureBanWordsButton;
 };
