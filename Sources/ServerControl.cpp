@@ -5,6 +5,7 @@
 #include "ServerControl.hpp"
 #include "UserInterface.hpp"
 #include "Server.hpp"
+#include <fstream> 
 
 ServerControl::ServerControl()  : wxFrame(wxWindow::FindWindowById(MainWindowID), ServerControlWindowID, "Server control", wxDefaultPosition, wxSize(400, 600)){
 	LogCounter = 0; // Reseting log counter
@@ -29,6 +30,7 @@ ServerControl::ServerControl()  : wxFrame(wxWindow::FindWindowById(MainWindowID)
     S->Run(*this);
 
     // Binding buttons
+    Bind(wxEVT_MENU, &ServerControl::OnToolClicked, this, BWriteLogID);
     Bind(wxEVT_MENU, &ServerControl::OnToolClicked, this, BCloseServerID);
 
     Show(true);
@@ -40,10 +42,19 @@ void ServerControl::OnToolClicked(wxCommandEvent& Event){
             S->Stop();
             Close(true);
             break;
+        case BWriteLogID:
+            WriteLN("Log have been writen in file " + S->Options.LogFileName);
+            WriteLog();
     }
+}
+
+void ServerControl::WriteLog(){
+    std::ofstream LogFile(S->Options.LogFileName);
+    LogFile << LogString;
 }
 
 void ServerControl::WriteLN(std::string Message){
 	m_Log->InsertItem(LogCounter, Message); // Writing
+    LogString += Message + "\n"; // Writing to string 
 	LogCounter++;
 }

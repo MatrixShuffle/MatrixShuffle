@@ -22,5 +22,6 @@ private:
     Server *S;
     wxToolBar *m_Toolbar;
     wxListCtrl *m_Log;
+    std::string LogString;
     long LogCounter;
 };
