@@ -8,28 +8,35 @@
 
 ServerConstructor::ServerConstructor()  : wxDialog(wxWindow::FindWindowById(MainWindowID), ServerConstructorID, "Server constructor", wxDefaultPosition, wxSize(0, 0)){
 	// Creating UI Elemets
-	m_TitleTextBox = new wxTextCtrl(this, wxID_ANY, "Server title");
-	m_LogFileNameTextBox = new wxTextCtrl(this, wxID_ANY, "Log file name");
-	m_PortTextBox = new wxTextCtrl(this, wxID_ANY, "Server port");
+	m_TitleTextBox = new wxTextCtrl(this, wxID_ANY, "");
+	m_LogFileNameTextBox = new wxTextCtrl(this, wxID_ANY, "");
+	m_PortTextBox = new wxTextCtrl(this, wxID_ANY, "");
 	m_UseCustomVideosCheckBox = new wxCheckBox(this, wxID_ANY, "Use custom videos");
 	m_ChatFilterCheckBox = new wxCheckBox(this, wxID_ANY, "Use chat filter");
 	m_IsPrivateCheckBox = new wxCheckBox(this, wxID_ANY, "Private server");
-	m_PasswordTextBox = new wxTextCtrl(this, wxID_ANY, "Server password");
-	m_CustomVideosDirectoryTextBox = new wxTextCtrl(this, wxID_ANY, "Custom video directory");
-	m_GoogleAPIKeyTextBox = new wxTextCtrl(this, wxID_ANY, "Google API Key (for random Youtube videos)");
+	m_PasswordTextBox = new wxTextCtrl(this, wxID_ANY, "");
+	m_CustomVideosDirectoryTextBox = new wxTextCtrl(this, wxID_ANY, "");
+	m_GoogleAPIKeyTextBox = new wxTextCtrl(this, wxID_ANY, "");
 	m_CreateButton = new wxButton(this, wxID_ANY, "Create");
 
+	// Adding placeholders
+	m_TitleTextBox->SetHint("Server title");
+	m_LogFileNameTextBox->SetHint("Log file name");
+	m_PortTextBox->SetHint("Server port");
+	m_PasswordTextBox->SetHint("Server password");
+	m_CustomVideosDirectoryTextBox->SetHint("Custom video directory");
+	m_GoogleAPIKeyTextBox->SetHint("Google API Key (for random Youtube videos)");
 	// Using sizer
 	wxBoxSizer *Sizer = new wxBoxSizer(wxVERTICAL);
-	Sizer->Add(m_TitleTextBox,0,wxALL,10);
-	Sizer->Add(m_LogFileNameTextBox,0,wxALL,10);
-	Sizer->Add(m_PortTextBox,0,wxALL,10);
+	Sizer->Add(m_TitleTextBox,1, wxEXPAND |wxALL,10);
+	Sizer->Add(m_LogFileNameTextBox,1, wxEXPAND |wxALL,10);
+	Sizer->Add(m_PortTextBox,1, wxEXPAND |wxALL,10);
 	Sizer->Add(m_UseCustomVideosCheckBox,0,wxALL,10);
 	Sizer->Add(m_ChatFilterCheckBox,0,wxALL,10);
 	Sizer->Add(m_IsPrivateCheckBox,0,wxALL,10);
-	Sizer->Add(m_PasswordTextBox,0,wxALL,10);
-	Sizer->Add(m_CustomVideosDirectoryTextBox,0,wxALL,10);
-	Sizer->Add(m_GoogleAPIKeyTextBox,0,wxALL,10);
+	Sizer->Add(m_PasswordTextBox,1, wxEXPAND |wxALL,10);
+	Sizer->Add(m_CustomVideosDirectoryTextBox,1, wxEXPAND |wxALL,10);
+	Sizer->Add(m_GoogleAPIKeyTextBox,1, wxEXPAND |wxALL,10);
 	Sizer->Add(m_CreateButton,0,wxALL,10);
 	SetSizerAndFit(Sizer);
 	Show(true);
