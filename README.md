@@ -8,6 +8,7 @@ This program now indev, and here is no features.
 To build MatrixShuffle you have to install
 * C++ Compiler (Clang, G++, etc)
 * CMake or Make build system
+* wxWidgets and Boost lib
 ### Make
 Now makefile is indev
 ### CMake
