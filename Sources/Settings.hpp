@@ -18,6 +18,7 @@ struct ClientSettings{
 // Server configuration
 struct ServerSettings{
 	std::string Title;
+	std::string LogPath = "~/MatrixShuffleLog.txt";
 	int Port;
 	bool UseCustomVideos;
 	bool ChatFilter;

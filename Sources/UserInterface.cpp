@@ -57,6 +57,10 @@ UserInterface::UserInterface()  : wxFrame(nullptr, MainWindowID, "MatrixShuffle"
     m_Toolbar->Realize();
 
     // Binding buttons
+    Bind(wxEVT_MENU, &UserInterface::OnToolClicked, this, BJoinServerID);
+    Bind(wxEVT_MENU, &UserInterface::OnToolClicked, this, BRefreshID);
+    Bind(wxEVT_MENU, &UserInterface::OnToolClicked, this, BAboutID);
+    Bind(wxEVT_MENU, &UserInterface::OnToolClicked, this, BSettingsID);
     Bind(wxEVT_MENU, &UserInterface::OnToolClicked, this, BCreateServerID);
 
     Show(true);

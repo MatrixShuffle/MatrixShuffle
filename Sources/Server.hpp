@@ -5,15 +5,17 @@
 #pragma once
 
 #include <boost/asio.hpp>
-#include "ServerControl.hpp"
 #include "Settings.hpp"
+
+class ServerControl;
 
 class Server{
 public:
 	Server();
-	void Run();
+	void Run(ServerControl& ControlUI);
+	void Stop();
 	ServerSettings Options;
-	ServerControl *ControlUI;
 private:
 	boost::asio::io_context AsioContext; // Boost.asio context
+	boost::asio::ip::tcp::acceptor *AsioAcceptor; // Boost.asio acceptor
 };

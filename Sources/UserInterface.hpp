@@ -25,7 +25,8 @@ enum InterfaceControls{ // Interface controls ID's
 	BSettingsID,
 	BCreateServerID,
 	ServerListID,
-	BCloseServerID=2000 // Server control button
+	BCloseServerID=2000, // Server control button
+	BWriteLogID
 };
 
 // Window with interface
