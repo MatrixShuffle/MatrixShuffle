@@ -16,6 +16,7 @@ ServerConstructor::ServerConstructor()  : wxDialog(wxWindow::FindWindowById(Main
 	m_PasswordTextBox = new wxTextCtrl(this, wxID_ANY, "");
 	m_GoogleAPIKeyTextBox = new wxTextCtrl(this, wxID_ANY, "");
 	m_CreateButton = new wxButton(this, BContructServerID, "Create");
+	m_ConfigureBanWordsButton = new wxButton(this, BConfigureBannedWords, "Configure banned words");
 	// Adding placeholders
 	m_TitleTextBox->SetHint("Server title");
 	m_LogFileNameTextBox->SetHint("Log file name");
@@ -30,6 +31,7 @@ ServerConstructor::ServerConstructor()  : wxDialog(wxWindow::FindWindowById(Main
 	Sizer->Add(m_PasswordTextBox,1, wxEXPAND |wxALL,10);
 	Sizer->Add(m_GoogleAPIKeyTextBox,1, wxEXPAND |wxALL,10);
 	Sizer->Add(m_CreateButton,0,wxALL,10);
+	Sizer->Add(m_ConfigureBanWordsButton,1, wxEXPAND |wxALL,10);
 	SetSizerAndFit(Sizer);
 
     Bind(wxEVT_BUTTON, &ServerConstructor::OnButtonClicked, this, BContructServerID);
