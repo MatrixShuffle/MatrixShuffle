@@ -21,7 +21,7 @@ ServerConstructor::ServerConstructor()  : wxDialog(wxWindow::FindWindowById(Main
 	m_TitleTextBox->SetHint("Server title");
 	m_LogFileNameTextBox->SetHint("Log file name");
 	m_PasswordTextBox->SetHint("Server password");
-	m_GoogleAPIKeyTextBox->SetHint("Google API Key (for random Youtube videos)");
+	m_GoogleAPIKeyTextBox->SetHint("Google API Key");
 	// Using sizer
 	wxBoxSizer *Sizer = new wxBoxSizer(wxVERTICAL);
 	Sizer->Add(m_TitleTextBox,1, wxEXPAND |wxALL,10);
