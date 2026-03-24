@@ -20,11 +20,9 @@ struct ServerSettings{
 	std::string Title;
 	std::string LogFileName = "MatrixShuffleLog.txt";
 	int Port=5000;
-	bool UseCustomVideos;
 	bool ChatFilter;
 	bool IsPrivate;
 	std::string Password;
 	std::vector<std::string> BannedWords;
-	std::string CustomVideosDirectory;
 	std::string GoogleAPIKey;
 };

@@ -19,11 +19,9 @@ private:
 	wxTextCtrl *m_TitleTextBox;
 	wxTextCtrl *m_LogFileNameTextBox;
 	wxTextCtrl *m_PortTextBox;
-	wxCheckBox *m_UseCustomVideosCheckBox;
 	wxCheckBox *m_ChatFilterCheckBox;
 	wxCheckBox *m_IsPrivateCheckBox;
 	wxTextCtrl *m_PasswordTextBox;
-	wxTextCtrl *m_CustomVideosDirectoryTextBox;
 	wxTextCtrl *m_GoogleAPIKeyTextBox;
 	wxButton *m_CreateButton;
 	wxButton *m_HelpButton;
