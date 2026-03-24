@@ -13,6 +13,7 @@
 class ServerConstructor : public wxDialog{
 public:
 	ServerConstructor();
+	virtual void OnButtonClicked(wxCommandEvent& Event);
 private:
 	// UI Widgets
 	wxTextCtrl *m_TitleTextBox;

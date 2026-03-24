@@ -8,11 +8,12 @@
 #include <wx/listctrl.h>
 #include <string>
 
+struct ServerSettings;
 class Server;
 
 class ServerControl : wxFrame{
 public:
-	ServerControl();
+	ServerControl(ServerSettings Options);
 	virtual void OnToolClicked(wxCommandEvent& Event); // Event handler
 	void WriteLN(std::string Message); // Writing message into log
 	void WriteLog(); // Writing log into file

@@ -5,11 +5,13 @@
 #include "ServerControl.hpp"
 #include "UserInterface.hpp"
 #include "Server.hpp"
+#include "Settings.hpp"
 #include <fstream> 
 
-ServerControl::ServerControl()  : wxFrame(wxWindow::FindWindowById(MainWindowID), ServerControlWindowID, "Server control", wxDefaultPosition, wxSize(400, 600)){
+ServerControl::ServerControl(ServerSettings Options)  : wxFrame(nullptr, ServerControlWindowID, "Server control", wxDefaultPosition, wxSize(400, 600)){
 	LogCounter = 0; // Reseting log counter
     S = new Server();
+    S->Options = Options;
 	// Creating UI Elemets
     m_Toolbar = CreateToolBar();
     m_Log = new wxListCtrl(this, ServerListID, wxDefaultPosition, wxDefaultSize, wxLC_LIST);

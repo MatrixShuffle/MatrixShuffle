@@ -5,6 +5,7 @@
 #include "ServerContructor.hpp"
 #include "ServerControl.hpp"
 #include "UserInterface.hpp"
+#include "Settings.hpp"
 
 ServerConstructor::ServerConstructor()  : wxDialog(wxWindow::FindWindowById(MainWindowID), ServerConstructorID, "Server constructor", wxDefaultPosition, wxSize(0, 0)){
 	// Creating UI Elemets
@@ -17,7 +18,7 @@ ServerConstructor::ServerConstructor()  : wxDialog(wxWindow::FindWindowById(Main
 	m_PasswordTextBox = new wxTextCtrl(this, wxID_ANY, "");
 	m_CustomVideosDirectoryTextBox = new wxTextCtrl(this, wxID_ANY, "");
 	m_GoogleAPIKeyTextBox = new wxTextCtrl(this, wxID_ANY, "");
-	m_CreateButton = new wxButton(this, wxID_ANY, "Create");
+	m_CreateButton = new wxButton(this, BContructServerID, "Create");
 
 	// Adding placeholders
 	m_TitleTextBox->SetHint("Server title");
@@ -39,8 +40,30 @@ ServerConstructor::ServerConstructor()  : wxDialog(wxWindow::FindWindowById(Main
 	Sizer->Add(m_GoogleAPIKeyTextBox,1, wxEXPAND |wxALL,10);
 	Sizer->Add(m_CreateButton,0,wxALL,10);
 	SetSizerAndFit(Sizer);
-	Show(true);
 
-	ServerControl *m_SControl;
-	m_SControl = new ServerControl();
+    Bind(wxEVT_BUTTON, &ServerConstructor::OnButtonClicked, this, BContructServerID);
+
+	Show(true);
+}
+
+void ServerConstructor::OnButtonClicked(wxCommandEvent& Event){
+	switch (Event.GetId()){
+        case BContructServerID:
+        	// Creating server options
+        	ServerSettings OptionsBuffer;
+        	OptionsBuffer.Title = m_TitleTextBox->GetValue();
+        	OptionsBuffer.LogFileName = m_LogFileNameTextBox->GetValue();
+        	//OptionsBuffer.Port = std::stoi(m_PortTextBox->GetValue().ToStdString()); // Transforming into std string and transforming into integer
+        	OptionsBuffer.UseCustomVideos = m_UseCustomVideosCheckBox->GetValue();
+        	OptionsBuffer.ChatFilter = m_ChatFilterCheckBox->GetValue();
+        	OptionsBuffer.IsPrivate = m_IsPrivateCheckBox->GetValue();
+        	OptionsBuffer.Password = m_PasswordTextBox->GetValue();
+        	OptionsBuffer.CustomVideosDirectory = m_CustomVideosDirectoryTextBox->GetValue();
+        	OptionsBuffer.GoogleAPIKey = m_GoogleAPIKeyTextBox->GetValue();
+        	// Creating server controls, and server inside controller
+			ServerControl *m_SControl;
+			m_SControl = new ServerControl(OptionsBuffer);
+			Close(true);
+            break;
+    }
 }
