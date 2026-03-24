@@ -21,13 +21,20 @@ void Server::Run(ServerControl& ControlUI){
 	ControlUI.WriteLN("|*----------------------------*|");
 	// Creating TCP acceptor
 	AsioAcceptor = new boost::asio::ip::tcp::acceptor(this->AsioContext, boost::asio::ip::tcp::endpoint(boost::asio::ip::tcp::v4(), Options.Port));
-	ControlUI.WriteLN("Server have been started on port " + std::to_string(Options.Port));
-	ControlUI.WriteLN("--------------------------------");
 	ControlUI.WriteLN("Title: " + Options.Title);
+	ControlUI.WriteLN("Log file name: " + Options.LogFileName);
+	ControlUI.WriteLN("Port: " + std::to_string(Options.Port));
+	if (Options.IsPrivate == true){
+		ControlUI.WriteLN("Password: " + Options.Password);
+	}
+	if (Options.ChatFilter == true){
+		ControlUI.WriteLN("Banned words: indev, indev");
+	}
+	ControlUI.WriteLN("Google API key (Dont show it): " + Options.GoogleAPIKey);
     AsioContext.run();
 }
 
 void Server::Stop(){
-
+	AsioAcceptor->close();
     AsioContext.stop();
 }
