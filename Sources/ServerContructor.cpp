@@ -16,7 +16,6 @@ ServerConstructor::ServerConstructor()  : wxDialog(wxWindow::FindWindowById(Main
 	m_PasswordTextBox = new wxTextCtrl(this, wxID_ANY, "");
 	m_GoogleAPIKeyTextBox = new wxTextCtrl(this, wxID_ANY, "");
 	m_CreateButton = new wxButton(this, BContructServerID, "Create");
-
 	// Adding placeholders
 	m_TitleTextBox->SetHint("Server title");
 	m_LogFileNameTextBox->SetHint("Log file name");
@@ -40,7 +39,7 @@ ServerConstructor::ServerConstructor()  : wxDialog(wxWindow::FindWindowById(Main
 
 void ServerConstructor::OnButtonClicked(wxCommandEvent& Event){
 	switch (Event.GetId()){
-        case BContructServerID:
+        case BContructServerID:{
         	// Creating server options
         	ServerSettings OptionsBuffer;
         	OptionsBuffer.Title = m_TitleTextBox->GetValue();
@@ -54,5 +53,6 @@ void ServerConstructor::OnButtonClicked(wxCommandEvent& Event){
 			m_SControl = new ServerControl(OptionsBuffer);
 			Close(true);
             break;
+        }
     }
 }

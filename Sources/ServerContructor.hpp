@@ -9,6 +9,7 @@
 #include <wx/checkbox.h>
 #include <wx/button.h>
 #include <wx/sizer.h>
+#include <wx/webview.h>
 
 class ServerConstructor : public wxDialog{
 public:
@@ -23,6 +24,5 @@ private:
 	wxTextCtrl *m_PasswordTextBox;
 	wxTextCtrl *m_GoogleAPIKeyTextBox;
 	wxButton *m_CreateButton;
-	wxButton *m_HelpButton;
 	wxButton *m_ConfigureBanWordsButton;
 };

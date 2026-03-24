@@ -15,7 +15,7 @@ file(GLOB SOURCES "Sources/*.cpp")
 
 # Adding libraries
 # wxWidgets
-find_package(wxWidgets REQUIRED COMPONENTS core base gl)
+find_package(wxWidgets REQUIRED COMPONENTS core base)
 if(wxWidgets_FOUND)
     include(${wxWidgets_USE_FILE})
 endif()
