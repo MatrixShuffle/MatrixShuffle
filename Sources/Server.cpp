@@ -6,8 +6,11 @@
 #include "ServerControl.hpp"
 #include <thread>
 #include <chrono>
+#include <random>
 
 Server::Server(){
+	// Generating random port
+	Options.Port = std::rand();
 }
 
 void Server::Run(ServerControl& ControlUI){

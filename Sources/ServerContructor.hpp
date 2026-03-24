@@ -18,7 +18,6 @@ private:
 	// UI Widgets
 	wxTextCtrl *m_TitleTextBox;
 	wxTextCtrl *m_LogFileNameTextBox;
-	wxTextCtrl *m_PortTextBox;
 	wxCheckBox *m_ChatFilterCheckBox;
 	wxCheckBox *m_IsPrivateCheckBox;
 	wxTextCtrl *m_PasswordTextBox;

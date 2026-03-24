@@ -11,7 +11,6 @@ ServerConstructor::ServerConstructor()  : wxDialog(wxWindow::FindWindowById(Main
 	// Creating UI Elemets
 	m_TitleTextBox = new wxTextCtrl(this, wxID_ANY, "");
 	m_LogFileNameTextBox = new wxTextCtrl(this, wxID_ANY, "");
-	m_PortTextBox = new wxTextCtrl(this, wxID_ANY, "");
 	m_ChatFilterCheckBox = new wxCheckBox(this, wxID_ANY, "Use chat filter");
 	m_IsPrivateCheckBox = new wxCheckBox(this, wxID_ANY, "Private server");
 	m_PasswordTextBox = new wxTextCtrl(this, wxID_ANY, "");
@@ -21,14 +20,12 @@ ServerConstructor::ServerConstructor()  : wxDialog(wxWindow::FindWindowById(Main
 	// Adding placeholders
 	m_TitleTextBox->SetHint("Server title");
 	m_LogFileNameTextBox->SetHint("Log file name");
-	m_PortTextBox->SetHint("Server port");
 	m_PasswordTextBox->SetHint("Server password");
 	m_GoogleAPIKeyTextBox->SetHint("Google API Key (for random Youtube videos)");
 	// Using sizer
 	wxBoxSizer *Sizer = new wxBoxSizer(wxVERTICAL);
 	Sizer->Add(m_TitleTextBox,1, wxEXPAND |wxALL,10);
 	Sizer->Add(m_LogFileNameTextBox,1, wxEXPAND |wxALL,10);
-	Sizer->Add(m_PortTextBox,1, wxEXPAND |wxALL,10);
 	Sizer->Add(m_ChatFilterCheckBox,0,wxALL,10);
 	Sizer->Add(m_IsPrivateCheckBox,0,wxALL,10);
 	Sizer->Add(m_PasswordTextBox,1, wxEXPAND |wxALL,10);
@@ -48,7 +45,6 @@ void ServerConstructor::OnButtonClicked(wxCommandEvent& Event){
         	ServerSettings OptionsBuffer;
         	OptionsBuffer.Title = m_TitleTextBox->GetValue();
         	OptionsBuffer.LogFileName = m_LogFileNameTextBox->GetValue();
-        	//OptionsBuffer.Port = std::stoi(m_PortTextBox->GetValue().ToStdString()); // Transforming into std string and transforming into integer
         	OptionsBuffer.ChatFilter = m_ChatFilterCheckBox->GetValue();
         	OptionsBuffer.IsPrivate = m_IsPrivateCheckBox->GetValue();
         	OptionsBuffer.Password = m_PasswordTextBox->GetValue();

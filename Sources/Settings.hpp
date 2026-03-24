@@ -19,7 +19,7 @@ struct ClientSettings{
 struct ServerSettings{
 	std::string Title;
 	std::string LogFileName = "MatrixShuffleLog.txt";
-	int Port=5000;
+	uint16_t Port;
 	bool ChatFilter;
 	bool IsPrivate;
 	std::string Password;
